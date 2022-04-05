@@ -58,7 +58,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               children: [
                 BounceInUp(
                   preferences: const AnimationPreferences(
-                    duration: Duration(milliseconds: 1300),
+                    offset: Duration(milliseconds: 1450),
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 50, left: 0),
@@ -66,7 +66,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 ),
                 BounceInUp(
                   preferences: const AnimationPreferences(
-                    duration: Duration(milliseconds: 1600),
+                    offset: Duration(milliseconds: 1600),
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(
@@ -76,7 +76,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 ),
                 BounceInUp(
                   preferences: const AnimationPreferences(
-                    duration: Duration(milliseconds: 1400),
+                    offset: Duration(milliseconds: 1400),
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 120, left: 30),
@@ -85,7 +85,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                 ),
                 BounceInUp(
                   preferences: const AnimationPreferences(
-                    duration: Duration(milliseconds: 1500),
+                    offset: Duration(milliseconds: 1500),
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 0, left: 30),
@@ -124,8 +124,13 @@ class BackgroundImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      'assets/images/mainbg.png',
+    return FadeIn(
+      preferences: const AnimationPreferences(
+        offset: Duration(milliseconds: 1500),
+      ),
+      child: Image.asset(
+        'assets/images/mainbg.png',
+      ),
     );
   }
 }
