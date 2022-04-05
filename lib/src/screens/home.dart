@@ -1,4 +1,5 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
+import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
@@ -57,59 +58,60 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               children: [
                 BounceInUp(
                   preferences: const AnimationPreferences(
-                    duration: Duration(milliseconds: 1300),
+                    offset: Duration(milliseconds: 1450),
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 50, left: 0),
-                      child: Image.asset('images/lantern.png')),
+                      child: Image.asset('assets/images/lantern.png')),
                 ),
                 BounceInUp(
                   preferences: const AnimationPreferences(
-                    duration: Duration(milliseconds: 1600),
+                    offset: Duration(milliseconds: 1600),
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(
                           bottom: 80, left: 30, right: 60),
-                      child: Image.asset('images/lantern.png'),
+                      child: Image.asset('assets/images/lantern.png'),
                       width: 50),
                 ),
                 BounceInUp(
                   preferences: const AnimationPreferences(
-                    duration: Duration(milliseconds: 1400),
+                    offset: Duration(milliseconds: 1400),
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 120, left: 30),
-                      child: Image.asset('images/lantern.png'),
+                      child: Image.asset('assets/images/lantern.png'),
                       width: 70),
                 ),
                 BounceInUp(
                   preferences: const AnimationPreferences(
-                    duration: Duration(milliseconds: 1500),
+                    offset: Duration(milliseconds: 1500),
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 0, left: 30),
-                      child: Image.asset('images/lantern.png', width: 50)),
+                      child:
+                          Image.asset('assets/images/lantern.png', width: 50)),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Enabled',
-                    ),
-                  ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Center(
+                child: SharpRoundedButton(
+                  onPressed: () {},
+                  text: 'GET STARTED',
+                  borderRadius: 11,
+                  height: 60,
+                  width: 350,
+                  textColor: backGroundColor,
                 ),
-                SizedBox(
-                  height: height * 0.05,
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: height * 0.05,
+              ),
+            ],
           )
         ],
       ),
@@ -122,9 +124,12 @@ class BackgroundImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
+    return FadeIn(
+      preferences: const AnimationPreferences(
+        offset: Duration(milliseconds: 1500),
+      ),
       child: Image.asset(
-        'images/mainbg.png',
+        'assets/images/mainbg.png',
       ),
     );
   }
