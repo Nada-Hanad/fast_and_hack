@@ -36,6 +36,7 @@ class SharpRoundedButton extends StatelessWidget {
           text,
           style: TextStyle(
             color: textColor,
+            fontFamily: 'MontserratMedium',
             fontSize: 20,
           ),
         ),

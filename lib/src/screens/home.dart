@@ -62,7 +62,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 50, left: 0),
-                      child: Image.asset('images/lantern.png')),
+                      child: Image.asset('assets/images/lantern.png')),
                 ),
                 BounceInUp(
                   preferences: const AnimationPreferences(
@@ -71,7 +71,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   child: Container(
                       margin: const EdgeInsets.only(
                           bottom: 80, left: 30, right: 60),
-                      child: Image.asset('images/lantern.png'),
+                      child: Image.asset('assets/images/lantern.png'),
                       width: 50),
                 ),
                 BounceInUp(
@@ -80,7 +80,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 120, left: 30),
-                      child: Image.asset('images/lantern.png'),
+                      child: Image.asset('assets/images/lantern.png'),
                       width: 70),
                 ),
                 BounceInUp(
@@ -89,30 +89,29 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   ),
                   child: Container(
                       margin: const EdgeInsets.only(bottom: 0, left: 30),
-                      child: Image.asset('images/lantern.png', width: 50)),
+                      child:
+                          Image.asset('assets/images/lantern.png', width: 50)),
                 ),
               ],
             ),
           ),
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Center(
-                  child: SharpRoundedButton(
-                    onPressed: () {},
-                    text: 'GET STARTED',
-                    borderRadius: 11,
-                    height: 60,
-                    width: 350,
-                    textColor: backGroundColor,
-                  ),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Center(
+                child: SharpRoundedButton(
+                  onPressed: () {},
+                  text: 'GET STARTED',
+                  borderRadius: 11,
+                  height: 60,
+                  width: 350,
+                  textColor: backGroundColor,
                 ),
-                SizedBox(
-                  height: height * 0.05,
-                ),
-              ],
-            ),
+              ),
+              SizedBox(
+                height: height * 0.05,
+              ),
+            ],
           )
         ],
       ),
@@ -125,10 +124,8 @@ class BackgroundImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Image.asset(
-        'images/mainbg.png',
-      ),
+    return Image.asset(
+      'assets/images/mainbg.png',
     );
   }
 }
