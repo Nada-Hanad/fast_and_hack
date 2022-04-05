@@ -1,18 +1,58 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
   @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(seconds: 20),
+    );
+
+    animationController.repeat();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: const Text('Fast & Hack'),
+    final width = MediaQuery.of(context).size.width;
+    return Container(
+      alignment: Alignment.center,
+      color: Colors.bg,
+      child: AnimatedBuilder(
+        animation: animationController,
+        child: SizedBox(
+          height: width * 0.8,
+          width: width * 0.8,
+          child: const BackgroundImage(),
+        ),
+        builder: (BuildContext context, Widget? _widget) {
+          return Transform.rotate(
+            angle: animationController.value * 6.3,
+            child: _widget,
+          );
+        },
       ),
-      body: const Center(
-        child: Text('Fast & Hack with Flutter::Tech Phantoms'),
+    );
+  }
+}
+
+class BackgroundImage extends StatelessWidget {
+  const BackgroundImage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Image.asset(
+        'images/mainbg.png',
       ),
     );
   }
