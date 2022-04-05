@@ -1,4 +1,5 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
+import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
@@ -98,11 +99,13 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Center(
-                  child: ElevatedButton(
+                  child: SharpRoundedButton(
                     onPressed: () {},
-                    child: const Text(
-                      'Enabled',
-                    ),
+                    text: 'GET STARTED',
+                    borderRadius: 11,
+                    height: 60,
+                    width: 350,
+                    textColor: backGroundColor,
                   ),
                 ),
                 SizedBox(
