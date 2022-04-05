@@ -1,4 +1,4 @@
-import 'package:fast_and_hack/myColors/myColors.dart';
+import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
