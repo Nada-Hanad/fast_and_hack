@@ -1,3 +1,4 @@
+import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/screens/home.dart';
 import 'package:flutter/material.dart';
 
@@ -13,8 +14,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Fast & Hack with Flutter',
-      theme: ThemeData(
-        primarySwatch: Colors.deepPurple,
+      theme: ThemeData().copyWith(
+        // change the focus border color of the TextField
+        colorScheme: ThemeData().colorScheme.copyWith(primary: beige),
+        // change the focus border color when the errorText is set
+        errorColor: beige,
       ),
       home: const MyHomePage(title: 'Fast & Hack with Flutter'),
     );
