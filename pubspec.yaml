@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter_animator: ^3.2.1
   form_bloc: ^0.30.0
+  bubble_bottom_bar: ^2.0.0
 
 dev_dependencies:
   flutter_test:

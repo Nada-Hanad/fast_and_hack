@@ -36,7 +36,7 @@ class SharpRoundedButton extends StatelessWidget {
         width: width,
         child: ElevatedButton(
           style: style,
-          onPressed: () {},
+          onPressed: onPressed,
           child: Text(
             text,
             style: TextStyle(

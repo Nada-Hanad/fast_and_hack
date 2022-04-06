@@ -1,5 +1,6 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
+import 'package:fast_and_hack/src/screens/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
@@ -100,7 +101,15 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             children: [
               Center(
                 child: SharpRoundedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const NavigatorPage(
+                                title: '',
+                              )),
+                    );
+                  },
                   text: 'GET STARTED',
                   borderRadius: 11,
                   height: 60,
