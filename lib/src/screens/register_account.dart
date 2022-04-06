@@ -1,6 +1,7 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
 import 'package:fast_and_hack/src/custom_widgets/inputs/custom_input.dart';
+import 'package:fast_and_hack/src/screens/data_collect.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -65,7 +66,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   const SizedBox(height: 50.0),
                   SharpRoundedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CollectData()),
+                      );
+                    },
                     text: 'Continue',
                     borderRadius: 30,
                     height: 60,

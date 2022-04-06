@@ -39,7 +39,7 @@ class _NavigatorPageState extends State<NavigatorPage> {
       body: _children[currentIndex], // new
 
       bottomNavigationBar: BubbleBottomBar(
-        tilesPadding: const EdgeInsets.all(0),
+        tilesPadding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
         opacity: 1,
         currentIndex: currentIndex,
         onTap: changePage,
