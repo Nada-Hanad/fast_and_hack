@@ -1,5 +1,6 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/screens/home.dart';
+import 'package:fast_and_hack/src/screens/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,6 +38,6 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Home();
+    return Login();
   }
 }
