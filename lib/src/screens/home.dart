@@ -1,6 +1,6 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
-import 'package:fast_and_hack/src/screens/register_account.dart';
+import 'package:fast_and_hack/src/screens/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
@@ -105,7 +105,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const RegisterPage()),
+                          builder: (context) => const LoginPage()),
                     );
                   },
                   text: 'GET STARTED',

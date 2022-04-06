@@ -1,10 +1,18 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
+import 'package:fast_and_hack/src/auth/api_client.dart';
 import 'package:fast_and_hack/src/screens/my_program.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
 class NavigatorPage extends StatefulWidget {
-  const NavigatorPage({Key? key, required this.title}) : super(key: key);
+  final String accesstoken;
+  String getAccessToken() {
+    return accesstoken;
+  }
+
+  const NavigatorPage(
+      {Key? key, required this.title, required this.accesstoken})
+      : super(key: key);
   final String title;
   @override
   _NavigatorPageState createState() => _NavigatorPageState();
@@ -18,6 +26,14 @@ class _NavigatorPageState extends State<NavigatorPage> {
     const PlaceholderWidget(Colors.indigo),
   ];
   late int currentIndex;
+  final ApiClient _apiClient = ApiClient();
+
+  Future<Map<String, dynamic>> getUserData() async {
+    dynamic userRes;
+    userRes = await _apiClient.getUserProfileData(widget.accesstoken);
+    return userRes;
+  }
+
   @override
   void initState() {
     super.initState();

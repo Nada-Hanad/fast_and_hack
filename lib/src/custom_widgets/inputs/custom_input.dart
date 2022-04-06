@@ -3,7 +3,10 @@ import 'package:flutter/material.dart';
 
 class CustomInput extends StatelessWidget {
   final String hintText;
-  const CustomInput({Key? key, required this.hintText}) : super(key: key);
+  final TextEditingController controller;
+  const CustomInput(
+      {Key? key, required this.hintText, required this.controller})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +19,7 @@ class CustomInput extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(0),
       child: TextField(
+        controller: controller,
         style: const TextStyle(
           color: beige,
           fontFamily: 'MontserratMedium',
