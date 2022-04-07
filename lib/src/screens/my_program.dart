@@ -2,6 +2,7 @@ import 'package:avatar_glow/avatar_glow.dart';
 import 'package:date_picker_timeline/date_picker_widget.dart';
 import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
+import 'package:fast_and_hack/src/custom_widgets/voice_widgets/visualizer.dart';
 import 'package:flutter/material.dart';
 import 'package:speech_to_text/speech_to_text.dart' as stt;
 
@@ -242,30 +243,138 @@ class _SpeechScreenState extends State<SpeechScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Stack(
         children: [
-          SharpRoundedButton(
-              onPressed: () {
-                List<String> firstSentence =
-                    _extractWords('جمعيه بصمه جمعيه خيريه');
-                print(firstSentence);
+          Positioned(
+            bottom: MediaQuery.of(context).size.height * 0.65,
+            left: MediaQuery.of(context).size.width * 0.5,
+            child: Image.asset(
+              'assets/images/mainbg.png',
+              height: 300,
+            ),
+          ),
+          Positioned(
+            top: MediaQuery.of(context).size.height * 0.65,
+            right: MediaQuery.of(context).size.width * 0.5,
+            child: Image.asset(
+              'assets/images/mainbg.png',
+              height: 300,
+            ),
+          ),
+          Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(28.0),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      const SizedBox(
+                        height: 120.0,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: const Text(
+                          'SOURAT EL BAKARA',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: 'MontserratMedium',
+                            color: beige,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5.0,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: const Text(
+                          'AYA',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: 'MontserratMedium',
+                            color: beige,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 5.0,
+                      ),
+                      SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.9,
+                        child: const Text(
+                          'JUZI',
+                          style: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: 'MontserratMedium',
+                            color: beige,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.15,
+                      ),
+                      Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          SizedBox(
+                            height: 100,
+                            child: _isListening
+                                ? Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceEvenly,
+                                    children: List<Widget>.generate(
+                                        10,
+                                        (index) => VoiceVisualizer(
+                                            duration: [
+                                              900,
+                                              700,
+                                              600,
+                                              800,
+                                              500,
+                                              200,
+                                              700,
+                                              600,
+                                              800,
+                                              500
+                                            ][index],
+                                            color: beige)),
+                                  )
+                                : Container(),
+                          ),
+                          const Divider(
+                            thickness: 1.0,
+                            color: beige,
+                          ),
+                        ],
+                      ),
+                      // SharpRoundedButton(
+                      //     onPressed: () {
+                      //       List<String> firstSentence =
+                      //           _extractWords('جمعيه بصمه جمعيه خيريه');
+                      //       print(firstSentence);
 
-                List<String> secondSentence = _extractWords(_text);
-                print(secondSentence);
-                print(_compareWords(firstSentence, secondSentence));
-              },
-              text: 'Click me',
-              borderRadius: 30,
-              height: 60,
-              width: 300,
-              textColor: backGroundColor),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: Center(
-                child: Text(
-              _text,
-              style: const TextStyle(color: Colors.white, fontSize: 30),
-            )),
+                      //       List<String> secondSentence = _extractWords(_text);
+                      //       print(secondSentence);
+                      //       print(_compareWords(firstSentence, secondSentence));
+                      //     },
+                      //     text: 'Click me',
+                      //     borderRadius: 30,
+                      //     height: 60,
+                      //     width: 300,
+                      //     textColor: backGroundColor),
+                      // Padding(
+                      //   padding: const EdgeInsets.all(20.0),
+                      //   child: Center(
+                      //       child: Text(
+                      //     _text,
+                      //     style: const TextStyle(color: Colors.white, fontSize: 30),
+                      //   )),
+                      // ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
           ),
         ],
       ),
