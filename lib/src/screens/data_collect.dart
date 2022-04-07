@@ -23,6 +23,8 @@ class _CollectDataState extends State<CollectData> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     Future<void> _handleUpdate() async {
       //show snackbar to indicate loading
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -62,147 +64,187 @@ class _CollectDataState extends State<CollectData> {
       child: Scaffold(
         backgroundColor: backGroundColor,
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              const Text(
-                'Select your time',
-                style: TextStyle(
-                  fontSize: 30.0,
-                  fontFamily: 'MontserratMedium',
-                  color: beige,
+          child: SizedBox(
+            width: width * 0.8,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: width * 0.8,
+                  height: height * 0.1,
                 ),
-              ),
-              const SizedBox(
-                height: 60.0,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 20.0, right: 20.0),
-                child: Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'From:  ',
-                      style: TextStyle(
-                        fontSize: 25.0,
-                        fontFamily: 'MontserratMedium',
-                        color: beige,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        final TimeOfDay? timeOfDay = await showTimePicker(
-                          context: context,
-                          initialTime: startTime,
-                          initialEntryMode: TimePickerEntryMode.dial,
-                        );
-                        if (timeOfDay != null && timeOfDay != startTime) {
-                          setState(() {
-                            startTime = timeOfDay;
-                          });
-                        }
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.only(
-                            top: 5.0, left: 10, right: 10, bottom: 5),
-                        decoration: const BoxDecoration(
-                            border: Border(
-                              top: BorderSide(
-                                color: beige,
-                                width: 2.0,
-                              ),
-                              bottom: BorderSide(
-                                color: beige,
-                                width: 2.0,
-                              ),
-                              left: BorderSide(
-                                color: beige,
-                                width: 2.0,
-                              ),
-                              right: BorderSide(
-                                color: beige,
-                                width: 2.0,
-                              ),
-                            ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            )),
-                        child: Text(
-                          '${startTime.hour}:${startTime.minute}',
-                          style: const TextStyle(
-                              color: beige,
-                              fontFamily: "MontserratMedium",
-                              fontSize: 25),
-                        ),
-                      ),
-                    ),
-                    const Text(
-                      '  To:  ',
-                      style: TextStyle(
-                        fontSize: 25.0,
-                        fontFamily: 'MontserratMedium',
-                        color: beige,
-                      ),
-                    ),
-                    GestureDetector(
-                      onTap: () async {
-                        final TimeOfDay? timeOfDay = await showTimePicker(
-                          context: context,
-                          initialTime: endTime,
-                          initialEntryMode: TimePickerEntryMode.dial,
-                        );
-                        if (timeOfDay != null && timeOfDay != endTime) {
-                          setState(() {
-                            endTime = timeOfDay;
-                          });
-                        }
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.only(
-                            top: 5.0, left: 10, right: 10, bottom: 5),
-                        decoration: const BoxDecoration(
-                            border: Border(
-                              top: BorderSide(
-                                color: beige,
-                                width: 2.0,
-                              ),
-                              bottom: BorderSide(
-                                color: beige,
-                                width: 2.0,
-                              ),
-                              left: BorderSide(
-                                color: beige,
-                                width: 2.0,
-                              ),
-                              right: BorderSide(
-                                color: beige,
-                                width: 2.0,
-                              ),
-                            ),
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(10.0),
-                            )),
-                        child: Text(
-                          '${endTime.hour}:${endTime.minute}',
-                          style: const TextStyle(
-                              color: beige,
-                              fontFamily: "MontserratMedium",
-                              fontSize: 25),
-                        ),
+                  children: const [
+                    Center(
+                      child: Text(
+                        'Create new account',
+                        style: TextStyle(
+                            fontSize: 24.0,
+                            fontFamily: 'MontserratSemiBold',
+                            color: beige),
                       ),
                     ),
                   ],
                 ),
-              ),
-              SharpRoundedButton(
-                onPressed: _handleUpdate,
-                text: 'Complete',
-                borderRadius: 30,
-                height: 60,
-                width: 200,
-                textColor: Colors.black,
-              ),
-            ],
+                SizedBox(
+                  width: width * 0.8,
+                  height: height * 0.055,
+                ),
+                Row(
+                  children: const [
+                    Center(
+                      child: Text(
+                        'How much ?',
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                            fontSize: 20.0,
+                            fontFamily: 'MontserratSemiBold',
+                            color: beige),
+                      ),
+                    ),
+                  ],
+                ),
+                Row(),
+                const Text(
+                  'Select your time',
+                  style: TextStyle(
+                    fontSize: 18.0,
+                    fontFamily: 'MontserratMedium',
+                    color: beige,
+                  ),
+                ),
+                const SizedBox(
+                  height: 60.0,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        'From:  ',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                          fontFamily: 'MontserratMedium',
+                          color: beige,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () async {
+                          final TimeOfDay? timeOfDay = await showTimePicker(
+                            context: context,
+                            initialTime: startTime,
+                            initialEntryMode: TimePickerEntryMode.dial,
+                          );
+                          if (timeOfDay != null && timeOfDay != startTime) {
+                            setState(() {
+                              startTime = timeOfDay;
+                            });
+                          }
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.only(
+                              top: 5.0, left: 10, right: 10, bottom: 5),
+                          decoration: const BoxDecoration(
+                              border: Border(
+                                top: BorderSide(
+                                  color: beige,
+                                  width: 2.0,
+                                ),
+                                bottom: BorderSide(
+                                  color: beige,
+                                  width: 2.0,
+                                ),
+                                left: BorderSide(
+                                  color: beige,
+                                  width: 2.0,
+                                ),
+                                right: BorderSide(
+                                  color: beige,
+                                  width: 2.0,
+                                ),
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
+                              )),
+                          child: Text(
+                            '${startTime.hour}:${startTime.minute}',
+                            style: const TextStyle(
+                                color: beige,
+                                fontFamily: "MontserratMedium",
+                                fontSize: 25),
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        '  To:  ',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                          fontFamily: 'MontserratMedium',
+                          color: beige,
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: () async {
+                          final TimeOfDay? timeOfDay = await showTimePicker(
+                            context: context,
+                            initialTime: endTime,
+                            initialEntryMode: TimePickerEntryMode.dial,
+                          );
+                          if (timeOfDay != null && timeOfDay != endTime) {
+                            setState(() {
+                              endTime = timeOfDay;
+                            });
+                          }
+                        },
+                        child: Container(
+                          padding: const EdgeInsets.only(
+                              top: 5.0, left: 10, right: 10, bottom: 5),
+                          decoration: const BoxDecoration(
+                              border: Border(
+                                top: BorderSide(
+                                  color: beige,
+                                  width: 2.0,
+                                ),
+                                bottom: BorderSide(
+                                  color: beige,
+                                  width: 2.0,
+                                ),
+                                left: BorderSide(
+                                  color: beige,
+                                  width: 2.0,
+                                ),
+                                right: BorderSide(
+                                  color: beige,
+                                  width: 2.0,
+                                ),
+                              ),
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(10.0),
+                              )),
+                          child: Text(
+                            '${endTime.hour}:${endTime.minute}',
+                            style: const TextStyle(
+                                color: beige,
+                                fontFamily: "MontserratMedium",
+                                fontSize: 25),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                SharpRoundedButton(
+                  onPressed: _handleUpdate,
+                  text: 'Complete',
+                  borderRadius: 30,
+                  height: 60,
+                  width: 200,
+                  textColor: Colors.black,
+                ),
+              ],
+            ),
           ),
         ),
       ),
