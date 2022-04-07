@@ -6,9 +6,6 @@ import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
 class NavigatorPage extends StatefulWidget {
   final String accesstoken;
-  String getAccessToken() {
-    return accesstoken;
-  }
 
   const NavigatorPage(
       {Key? key, required this.title, required this.accesstoken})
@@ -21,18 +18,12 @@ class NavigatorPage extends StatefulWidget {
 class _NavigatorPageState extends State<NavigatorPage> {
   final List _children = [
     const MyProgramPage(),
-    const PlaceholderWidget(Colors.deepOrange),
-    const PlaceholderWidget(Colors.green),
-    const PlaceholderWidget(Colors.indigo),
+    const PlaceholderWidget(Colors.transparent),
+    const PlaceholderWidget(Colors.transparent),
+    const PlaceholderWidget(Colors.transparent),
   ];
   late int currentIndex;
   final ApiClient _apiClient = ApiClient();
-
-  Future<Map<String, dynamic>> getUserData() async {
-    dynamic userRes;
-    userRes = await _apiClient.getUserProfileData(widget.accesstoken);
-    return userRes;
-  }
 
   @override
   void initState() {
@@ -50,6 +41,12 @@ class _NavigatorPageState extends State<NavigatorPage> {
 
   @override
   Widget build(BuildContext context) {
+    Future<Map<String, dynamic>> getUserData() async {
+      dynamic userRes;
+      userRes = await _apiClient.getUserProfileData(widget.accesstoken);
+      return userRes;
+    }
+
     return Scaffold(
       backgroundColor: backGroundColor,
       body: _children[currentIndex], // new
@@ -71,8 +68,8 @@ class _NavigatorPageState extends State<NavigatorPage> {
                       color: backGroundColor, fontFamily: 'MontserratMedium'))),
           BubbleBottomBarItem(
               backgroundColor: beige,
-              icon: MyIcon(imagePath: "assets/images/book.png"),
-              activeIcon: MyIcon(imagePath: "assets/images/book.png"),
+              icon: MyIcon(imagePath: "assets/images/rooms.png"),
+              activeIcon: MyIcon(imagePath: "assets/images/rooms.png"),
               title: Text("Hifdh's room",
                   style: TextStyle(
                       color: backGroundColor, fontFamily: 'MontserratMedium'))),
@@ -104,8 +101,8 @@ class MyIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 25,
-      width: 25,
+      height: 30,
+      width: 30,
       child: Image.asset(
         imagePath,
       ),

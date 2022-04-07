@@ -70,4 +70,18 @@ class ApiClient {
       return Map<String, dynamic>.from(e.response!.data);
     }
   }
+
+  Future updateUser(Map<String, dynamic>? userData, String accessToken) async {
+    try {
+      Response response = await _dio.put(
+          'https://api.loginradius.com/identity/v2/auth/account',
+          data: userData,
+          queryParameters: {'apikey': '9d8a3c8c-b2cc-4603-a15f-73cfa94d0b30'},
+          options: Options(headers: {'Authorization': 'Bearer $accessToken'}));
+
+      return Map<String, dynamic>.from(response.data);
+    } on DioError catch (e) {
+      return e.response!.data;
+    }
+  }
 }
