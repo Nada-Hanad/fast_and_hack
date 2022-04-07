@@ -55,7 +55,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                 'Profile',
                                 style: TextStyle(
                                     fontSize: 30.0,
-                                    fontFamily: 'MontserratExtraBold',
+                                    fontFamily: 'MontserratBold',
                                     color: beige),
                               ),
                             ),
@@ -78,7 +78,7 @@ class _ProfilePageState extends State<ProfilePage> {
                                   'Change your settings, your preferences  in order to improve your experience with  “Haffedni”',
                                   style: TextStyle(
                                       fontSize: 18.0,
-                                      fontFamily: 'MontserratThin',
+                                      fontFamily: 'MontserratMedium',
                                       color: Colors.white),
                                   textAlign: TextAlign.left,
                                 ),

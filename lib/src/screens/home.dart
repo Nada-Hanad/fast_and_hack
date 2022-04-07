@@ -51,6 +51,14 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
               },
             ),
           ),
+          FadeIn(
+            preferences: const AnimationPreferences(
+              duration: Duration(milliseconds: 1500),
+            ),
+            child: Center(
+              child: Image.asset('assets/images/logo.png'),
+            ),
+          ),
           Positioned(
             bottom: height * 0.5,
             left: width * 0.04,

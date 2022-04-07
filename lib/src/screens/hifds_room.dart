@@ -54,7 +54,7 @@ class _HifdRoomState extends State<HifdRoom> {
                               'Hifds room',
                               style: TextStyle(
                                   fontSize: 30.0,
-                                  fontFamily: 'MontserratExtraBold',
+                                  fontFamily: 'MontserratBold',
                                   color: beige),
                             ),
                           ],
@@ -76,7 +76,7 @@ class _HifdRoomState extends State<HifdRoom> {
                                   'Here you can find rooms to interact with other people who share the same goal as you do.',
                                   style: TextStyle(
                                       fontSize: 18.0,
-                                      fontFamily: 'MontserratThin',
+                                      fontFamily: 'MontserratMedium',
                                       color: Colors.white),
                                   textAlign: TextAlign.left,
                                 ),
@@ -92,7 +92,8 @@ class _HifdRoomState extends State<HifdRoom> {
                         ),
                         Column(
                           children: <Widget>[
-                            _buildCard(),
+                            _buildCard(
+                                'ST AL-BAKARA', 'ROOM1', 'AYA 12', 'JUZI 1'),
                           ],
                         ),
                         SizedBox(
@@ -100,7 +101,8 @@ class _HifdRoomState extends State<HifdRoom> {
                         ),
                         Column(
                           children: <Widget>[
-                            _buildCard(),
+                            _buildCard(
+                                'ST AL-ISRAA', 'ROOM2', 'AYA 12', 'JUZI 15'),
                           ],
                         ),
                         SizedBox(
@@ -127,7 +129,7 @@ class _HifdRoomState extends State<HifdRoom> {
         ));
   }
 
-  Card _buildCard() {
+  Card _buildCard(String sora, String text, String aya, String juzi) {
     double width = MediaQuery.of(context).size.width;
     double height = MediaQuery.of(context).size.height;
     return Card(
@@ -145,8 +147,8 @@ class _HifdRoomState extends State<HifdRoom> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            _buildImageBlock(),
-            _buildSuraBlock(),
+            _buildImageBlock(text),
+            _buildSuraBlock(sora, aya, juzi),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
@@ -165,7 +167,7 @@ class _HifdRoomState extends State<HifdRoom> {
     );
   }
 
-  Row _buildImageBlock() {
+  Row _buildImageBlock(String text) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
@@ -177,25 +179,25 @@ class _HifdRoomState extends State<HifdRoom> {
             width: 52,
           ),
         ),
-        const Text(
-          "ROOM 1",
-          style:
-              TextStyle(color: beige, fontSize: 22, fontFamily: 'Montserrat'),
+        Text(
+          text,
+          style: const TextStyle(
+              color: beige, fontSize: 22, fontFamily: 'MontserratMedium'),
         ),
       ],
     );
   }
 
-  Row _buildSuraBlock() {
+  Row _buildSuraBlock(String sora, String aya, String juzi) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: <Widget>[
         Text(
-          "ST AL-BAKARA",
+          sora,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
-            fontFamily: 'Montserrat',
+            fontFamily: 'MontserratMedium',
             background: Paint()
               ..strokeWidth = 19
               ..color = backGroundColor
@@ -204,11 +206,11 @@ class _HifdRoomState extends State<HifdRoom> {
           ),
         ),
         Text(
-          "AYA 22",
+          aya,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
-            fontFamily: 'Montserrat',
+            fontFamily: 'MontserratMedium',
             background: Paint()
               ..strokeWidth = 19
               ..color = backGroundColor
@@ -219,11 +221,11 @@ class _HifdRoomState extends State<HifdRoom> {
           ),
         ),
         Text(
-          "JUZI 1",
+          juzi,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16,
-            fontFamily: 'Montserrat',
+            fontFamily: 'MontserratMedium',
             background: Paint()
               ..strokeWidth = 19
               ..color = backGroundColor

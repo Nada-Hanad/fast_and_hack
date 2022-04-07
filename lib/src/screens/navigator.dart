@@ -54,44 +54,68 @@ class _NavigatorPageState extends State<NavigatorPage> {
       backgroundColor: backGroundColor,
       body: _children[currentIndex], // new
 
-      bottomNavigationBar: BubbleBottomBar(
-        tilesPadding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
-        opacity: 1,
-        currentIndex: currentIndex,
-        onTap: changePage,
-        borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
-        elevation: 8,
-        items: const <BubbleBottomBarItem>[
-          BubbleBottomBarItem(
-              backgroundColor: beige,
-              icon: MyIcon(imagePath: "assets/images/planner.png"),
-              activeIcon: MyIcon(imagePath: "assets/images/planner.png"),
-              title: Text("My program",
-                  style: TextStyle(
-                      color: backGroundColor, fontFamily: 'MontserratMedium'))),
-          BubbleBottomBarItem(
-              backgroundColor: beige,
-              icon: MyIcon(imagePath: "assets/images/rooms.png"),
-              activeIcon: MyIcon(imagePath: "assets/images/rooms.png"),
-              title: Text("Hifdh's room",
-                  style: TextStyle(
-                      color: backGroundColor, fontFamily: 'MontserratMedium'))),
-          BubbleBottomBarItem(
-              backgroundColor: beige,
-              icon: MyIcon(imagePath: "assets/images/challenges.png"),
-              activeIcon: MyIcon(imagePath: "assets/images/challenges.png"),
-              title: Text("Challenges",
-                  style: TextStyle(
-                      color: backGroundColor, fontFamily: 'MontserratMedium'))),
-          BubbleBottomBarItem(
-              backgroundColor: beige,
-              icon: MyIcon(imagePath: "assets/images/profile.png"),
-              activeIcon: MyIcon(imagePath: "assets/images/profile.png"),
-              title: Text("Profile",
-                  style: TextStyle(
-                      color: backGroundColor, fontFamily: 'MontserratMedium'))),
-        ],
-      ),
+      bottomNavigationBar: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.only(
+                topRight: Radius.circular(30), topLeft: Radius.circular(30)),
+            boxShadow: [
+              BoxShadow(color: Colors.black38, spreadRadius: 0, blurRadius: 10),
+            ],
+          ),
+          child: ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(20.0),
+              topRight: Radius.circular(20.0),
+            ),
+            child: BubbleBottomBar(
+              backgroundColor: const Color(0xFF3C5C7D),
+              tilesPadding: const EdgeInsets.only(top: 10.0, bottom: 10.0),
+              opacity: 1,
+              currentIndex: currentIndex,
+              onTap: changePage,
+              borderRadius:
+                  const BorderRadius.vertical(top: Radius.circular(16)),
+              elevation: 8,
+              items: const <BubbleBottomBarItem>[
+                BubbleBottomBarItem(
+                    backgroundColor: beige,
+                    icon: MyIcon(imagePath: "assets/images/planner.png"),
+                    activeIcon:
+                        MyIcon(imagePath: "assets/images/planner-active.png"),
+                    title: Text("My program",
+                        style: TextStyle(
+                            color: backGroundColor,
+                            fontFamily: 'MontserratMedium'))),
+                BubbleBottomBarItem(
+                    backgroundColor: beige,
+                    icon: MyIcon(imagePath: "assets/images/rooms.png"),
+                    activeIcon:
+                        MyIcon(imagePath: "assets/images/rooms-active.png"),
+                    title: Text("Hifdh's room",
+                        style: TextStyle(
+                            color: backGroundColor,
+                            fontFamily: 'MontserratMedium'))),
+                BubbleBottomBarItem(
+                    backgroundColor: beige,
+                    icon: MyIcon(imagePath: "assets/images/challenges.png"),
+                    activeIcon: MyIcon(
+                        imagePath: "assets/images/challenges-active.png"),
+                    title: Text("Challenges",
+                        style: TextStyle(
+                            color: backGroundColor,
+                            fontFamily: 'MontserratMedium'))),
+                BubbleBottomBarItem(
+                    backgroundColor: beige,
+                    icon: MyIcon(imagePath: "assets/images/profile.png"),
+                    activeIcon:
+                        MyIcon(imagePath: "assets/images/profile-active.png"),
+                    title: Text("Profile",
+                        style: TextStyle(
+                            color: backGroundColor,
+                            fontFamily: 'MontserratMedium'))),
+              ],
+            ),
+          )),
     );
   }
 }
@@ -109,19 +133,6 @@ class MyIcon extends StatelessWidget {
       child: Image.asset(
         imagePath,
       ),
-    );
-  }
-}
-
-class PlaceholderWidget extends StatelessWidget {
-  final Color color;
-
-  const PlaceholderWidget(this.color, {Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: color,
     );
   }
 }

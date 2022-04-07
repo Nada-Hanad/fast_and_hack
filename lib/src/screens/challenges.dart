@@ -54,7 +54,7 @@ class _ChallengePageState extends State<ChallengePage> {
                             'Challenges',
                             style: TextStyle(
                                 fontSize: 30.0,
-                                fontFamily: 'MontserratExtraBold',
+                                fontFamily: 'MontserratBold',
                                 color: beige),
                           ),
                         ],
@@ -76,7 +76,7 @@ class _ChallengePageState extends State<ChallengePage> {
                                 'Up for a challenge! Choose from the challenges below to start',
                                 style: TextStyle(
                                     fontSize: 18.0,
-                                    fontFamily: 'MontserratThin',
+                                    fontFamily: 'MontserratMedium',
                                     color: Colors.white),
                                 textAlign: TextAlign.left,
                               ),
@@ -162,7 +162,7 @@ class _ChallengePageState extends State<ChallengePage> {
                             'Quizz',
                             style: TextStyle(
                                 fontSize: 30.0,
-                                fontFamily: 'MontserratExtraBold',
+                                fontFamily: 'MontserratBold',
                                 color: beige),
                           ),
                         ],

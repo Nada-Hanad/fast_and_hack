@@ -1,4 +1,5 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
+import 'package:fast_and_hack/src/screens/navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animator/flutter_animator.dart';
 
@@ -9,7 +10,8 @@ class LoadingPage extends StatefulWidget {
   _LoadingPageState createState() => _LoadingPageState();
 }
 
-class _LoadingPageState extends State<LoadingPage> with SingleTickerProviderStateMixin {
+class _LoadingPageState extends State<LoadingPage>
+    with SingleTickerProviderStateMixin {
   late AnimationController animationController;
 
   @override
@@ -49,46 +51,31 @@ class _LoadingPageState extends State<LoadingPage> with SingleTickerProviderStat
               },
             ),
           ),
-
           Column(
-
             children: [
               SizedBox(
-                height: height * 0.04,
+                height: height * 0.07,
               ),
-              Row(
-                  children: [
-                    Image.asset(
-                      'assets/images/coolicon.png',
-                      height: 38,
-                      width: 100,
-                    ),
-                  ],
-                ),
-
               SizedBox(
-                height: height * 0.04,
-              ),
-              Row(
-
-                children: [
-                  SizedBox(
-                    width: width,
-                    child: Container(
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'Setting up your program ...',
-                        style: TextStyle(
-                            fontSize: 35.0,
-                            fontFamily: 'Montserrat',
-                            fontWeight: FontWeight.w400,
-                            decoration: TextDecoration.none,
-                            color: lightBeige),
-                        textAlign: TextAlign.center,
-                      ),
+                width: width,
+                child: Container(
+                  alignment: Alignment.center,
+                  child: FadeIn(
+                    preferences: const AnimationPreferences(
+                      duration: Duration(milliseconds: 1500),
+                    ),
+                    child: const Text(
+                      'Setting up your program ...',
+                      style: TextStyle(
+                          fontSize: 35.0,
+                          fontFamily: 'MontserratMedium',
+                          fontWeight: FontWeight.w400,
+                          decoration: TextDecoration.none,
+                          color: lightBeige),
+                      textAlign: TextAlign.center,
                     ),
                   ),
-                ],
+                ),
               ),
             ],
           )

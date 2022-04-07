@@ -75,7 +75,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: 30,
                       height: 60,
                       width: width * 0.75,
-                      textColor: Colors.black,
+                      textColor: backGroundColor,
                     ),
                     const SizedBox(height: 50.0),
                     const Divider(

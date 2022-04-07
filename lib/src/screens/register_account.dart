@@ -3,6 +3,7 @@ import 'package:fast_and_hack/src/auth/api_client.dart';
 import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
 import 'package:fast_and_hack/src/custom_widgets/inputs/custom_input.dart';
 import 'package:fast_and_hack/src/screens/data_collect.dart';
+import 'package:fast_and_hack/src/screens/preferences.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -76,7 +77,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const SizedBox(height: 50.0),
                     CustomInput(
-                      hintText: "Confirm password",
+                      hintText: "Password",
                       controller: confirmPasswordController,
                     ),
                     const SizedBox(height: 50.0),
@@ -86,7 +87,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       borderRadius: 30,
                       height: 60,
                       width: width * 0.75,
-                      textColor: Colors.black,
+                      textColor: backGroundColor,
                     ),
                   ],
                 ),
@@ -132,7 +133,7 @@ class _RegisterPageState extends State<RegisterPage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => CollectData(
+                  builder: (context) => SelectPage(
                         token: myAccessToken,
                       )));
         } else {

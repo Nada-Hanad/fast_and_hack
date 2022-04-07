@@ -1,4 +1,6 @@
 import 'package:direct_select/direct_select.dart';
+import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
+import 'package:fast_and_hack/src/screens/loading_page.dart';
 import 'package:flutter/material.dart';
 import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/auth/api_client.dart';
@@ -118,13 +120,13 @@ class _SelectPageState extends State<SelectPage> {
                         'Create new account',
                         style: TextStyle(
                             fontSize: 24.0,
-                            fontFamily: 'MontserratSemiBold',
+                            fontFamily: 'MontserratBold',
                             color: beige),
                       ),
                     ),
                   ],
                 ),
-                SizedBox(height: height * 0.06),
+                SizedBox(height: height * 0.05),
                 const Padding(
                   padding: EdgeInsets.only(left: 10.0),
                   child: Text(
@@ -132,7 +134,7 @@ class _SelectPageState extends State<SelectPage> {
                     style: TextStyle(
                       color: beige,
                       fontSize: 20.0,
-                      fontFamily: 'MontserratSemiBold',
+                      fontFamily: 'MontserratMedium',
                     ),
                   ),
                 ),
@@ -158,7 +160,7 @@ class _SelectPageState extends State<SelectPage> {
                     thickness: 1,
                   ),
                 ),
-                SizedBox(height: height * 0.05),
+                SizedBox(height: height * 0.02),
                 const Padding(
                   padding: EdgeInsets.only(left: 10.0, top: 20.0),
                   child: Text(
@@ -166,11 +168,11 @@ class _SelectPageState extends State<SelectPage> {
                     style: TextStyle(
                       color: beige,
                       fontSize: 20.0,
-                      fontFamily: 'MontserratSemiBold',
+                      fontFamily: 'MontserratMedium',
                     ),
                   ),
                 ),
-                SizedBox(height: height * 0.05),
+                SizedBox(height: height * 0.03),
                 DirectSelect(
                     itemExtent: 35.0,
                     selectedIndex: selectedIndex2!,
@@ -192,7 +194,7 @@ class _SelectPageState extends State<SelectPage> {
                     thickness: 1,
                   ),
                 ),
-                SizedBox(height: height * 0.06),
+                SizedBox(height: height * 0.03),
                 const Padding(
                   padding: EdgeInsets.only(left: 10.0),
                   child: Text(
@@ -200,11 +202,11 @@ class _SelectPageState extends State<SelectPage> {
                     style: TextStyle(
                       color: beige,
                       fontSize: 20.0,
-                      fontFamily: 'MontserratSemiBold',
+                      fontFamily: 'MontserratMedium',
                     ),
                   ),
                 ),
-                SizedBox(height: height * 0.05),
+                SizedBox(height: height * 0.03),
                 Padding(
                   padding: const EdgeInsets.only(left: 20.0, right: 20.0),
                   child: Row(
@@ -323,6 +325,22 @@ class _SelectPageState extends State<SelectPage> {
                     ],
                   ),
                 ),
+                SizedBox(height: height * 0.05),
+                SharpRoundedButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const NavigatorPage(
+                                    title: '',
+                                    accesstoken: '',
+                                  )));
+                    },
+                    text: 'Create account',
+                    borderRadius: 30,
+                    height: 60,
+                    width: 180,
+                    textColor: backGroundColor)
               ]),
         ),
       ),
