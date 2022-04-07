@@ -1,19 +1,63 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
+import 'package:fast_and_hack/src/auth/api_client.dart';
+import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
+import 'package:fast_and_hack/src/screens/navigator.dart';
 import 'package:flutter/material.dart';
 
 class CollectData extends StatefulWidget {
-  const CollectData({Key? key}) : super(key: key);
+  final String token;
+  const CollectData({
+    Key? key,
+    required this.token,
+  }) : super(key: key);
 
   @override
   State<CollectData> createState() => _CollectDataState();
 }
 
 class _CollectDataState extends State<CollectData> {
+  final _apiClient = ApiClient();
+
   TimeOfDay startTime = TimeOfDay.now();
   TimeOfDay endTime = TimeOfDay.now();
 
   @override
   Widget build(BuildContext context) {
+    Future<void> _handleUpdate() async {
+      //show snackbar to indicate loading
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+        content: const Text('Processing Data'),
+        backgroundColor: Colors.green.shade300,
+      ));
+
+      //the user data to be sent
+      Map<String, dynamic> userData = {
+        "StartTime": startTime,
+        "EndTime": endTime,
+      };
+
+      //get response from ApiClient
+      ScaffoldMessenger.of(context).hideCurrentSnackBar();
+      dynamic res = await _apiClient.updateUser(
+        userData,
+        widget.token,
+      );
+      if (res['ErrorCode'] == null) {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => NavigatorPage(
+                      accesstoken: widget.token,
+                      title: '',
+                    )));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('Error: ${res['Message']}'),
+          backgroundColor: Colors.red.shade300,
+        ));
+      }
+    }
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: backGroundColor,
@@ -149,6 +193,14 @@ class _CollectDataState extends State<CollectData> {
                     ),
                   ],
                 ),
+              ),
+              SharpRoundedButton(
+                onPressed: _handleUpdate,
+                text: 'Complete',
+                borderRadius: 30,
+                height: 60,
+                width: 200,
+                textColor: Colors.black,
               ),
             ],
           ),
