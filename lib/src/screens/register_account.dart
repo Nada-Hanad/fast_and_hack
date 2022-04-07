@@ -2,7 +2,7 @@ import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/auth/api_client.dart';
 import 'package:fast_and_hack/src/custom_widgets/buttons/rounded_button.dart';
 import 'package:fast_and_hack/src/custom_widgets/inputs/custom_input.dart';
-import 'package:fast_and_hack/src/screens/navigator.dart';
+import 'package:fast_and_hack/src/screens/data_collect.dart';
 import 'package:flutter/material.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -115,19 +115,13 @@ class _RegisterPageState extends State<RegisterPage> {
           }
         ],
         "Password": passwordController.text,
-        "About": 'I am a new user :smile:',
-        "FirstName": "Test",
-        "LastName": "Account",
-        "BirthDate": "10-12-1985",
-        "Gender": "M",
+        "FullName": userNameController.text,
       };
 
       //get response from ApiClient
       dynamic res = await _apiClient.registerUser(userData);
       ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
-      //checks if there is no error in the response body.
-      //if error is not present, navigate the users to Login Screen.
       if (res['ErrorCode'] == null) {
         dynamic result = await _apiClient.login(
           emailController.text,
@@ -138,9 +132,8 @@ class _RegisterPageState extends State<RegisterPage> {
           Navigator.push(
               context,
               MaterialPageRoute(
-                  builder: (context) => NavigatorPage(
-                        accesstoken: myAccessToken,
-                        title: '',
+                  builder: (context) => CollectData(
+                        token: myAccessToken,
                       )));
         } else {
           //if an error occurs, show snackbar with error message
@@ -152,7 +145,7 @@ class _RegisterPageState extends State<RegisterPage> {
       } else {
         //if error is present, display a snackbar showing the error messsage
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          content: Text('Error: ${res['Message']}'),
+          content: Text('Error: ${res['Description']}'),
           backgroundColor: Colors.red.shade300,
         ));
       }
