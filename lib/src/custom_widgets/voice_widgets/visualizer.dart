@@ -45,7 +45,7 @@ class _VoiceVisualizerState extends State<VoiceVisualizer>
       width: 7,
       decoration: BoxDecoration(
         color: beige,
-        borderRadius: BorderRadius.circular(0),
+        borderRadius: BorderRadius.circular(10),
       ),
       height: animation.value,
     );

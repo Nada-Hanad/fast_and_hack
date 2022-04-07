@@ -1,6 +1,8 @@
 import 'package:fast_and_hack/myColors/my_colors.dart';
 import 'package:fast_and_hack/src/auth/api_client.dart';
+import 'package:fast_and_hack/src/screens/challenges.dart';
 import 'package:fast_and_hack/src/screens/my_program.dart';
+import 'package:fast_and_hack/src/screens/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:bubble_bottom_bar/bubble_bottom_bar.dart';
 
@@ -19,8 +21,8 @@ class _NavigatorPageState extends State<NavigatorPage> {
   final List _children = [
     const MyProgramPage(),
     const PlaceholderWidget(Colors.transparent),
-    const PlaceholderWidget(Colors.transparent),
-    const PlaceholderWidget(Colors.transparent),
+    const ChallengePage(),
+    const ProfilePage(),
   ];
   late int currentIndex;
   final ApiClient _apiClient = ApiClient();
