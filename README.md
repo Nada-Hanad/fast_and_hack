@@ -1,16 +1,9 @@
-# fast_and_hack
+# Description 
 
-A new Flutter project.
+Hafidhni provides the most advanced and efficient way for muslims to recite the Qur'an. Browse through the many features that this project offers and experience for yourself what it is like to have your own personal imam.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+It is a project that help muslims to read the coran in arabic. You can read the coran and memorize it using, as well as plan your recital schedule to your own comfort, as well as have your own personal guide for recital.
 
-A few resources to get you started if this is your first Flutter project:
+The perspective area for our app is quite wide considering the expanded aspect of its main functionality that compares user's speech with the correct recital of the chosen verse from Quran, that can be enhanced with using AI. Another functionalities we have have in mind also after reaching out to mosqs teachers, that it would also be a good intermediate between the teacher and his students to monitor their progress.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
