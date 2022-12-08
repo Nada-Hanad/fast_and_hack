@@ -7,3 +7,5 @@ It is a project that help muslims to read the coran in arabic. You can read the 
 
 The perspective area for our app is quite wide considering the expanded aspect of its main functionality that compares user's speech with the correct recital of the chosen verse from Quran, that can be enhanced with using AI. Another functionalities we have have in mind also after reaching out to mosqs teachers, that it would also be a good intermediate between the teacher and his students to monitor their progress.
 
+# How?
+We got the idea as a solution for the Fast&Hack hackathon by **GDG Algiers**, and in which we got the first place.
